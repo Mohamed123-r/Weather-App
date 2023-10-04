@@ -8,15 +8,20 @@ class WeatherService {
 
   WeatherService({required this.dio});
 
-  Future<WeatherModel?> gitCurrentWeather({required String cityName}) async {
+  Future<WeatherModel> gitCurrentWeather({required String cityName}) async {
     try {
       Response response =
           await dio.get('$baseUrl/forecast.json?key=$apiKey&q=$cityName');
 
       WeatherModel weatherModel = WeatherModel.fromJson(response.data);
       return weatherModel;
+    } on DioException catch (e) {
+      final String errorMessage =
+          e.response?.data['error']['message'] ?? 'oops there was an error';
+
+      throw Exception(errorMessage);
     } catch (e) {
-      return null;
+      throw Exception('oops there was an error');
     }
   }
 }

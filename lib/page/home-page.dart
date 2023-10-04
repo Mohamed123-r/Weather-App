@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: WeatherInfoData(),
+      body: NoWeatherData(),
     );
   }
 }
