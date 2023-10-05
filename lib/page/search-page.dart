@@ -1,9 +1,5 @@
-import 'dart:math';
 
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/models/weather_model.dart';
-import 'package:weather_app/services/weather-service.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});

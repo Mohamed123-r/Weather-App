@@ -10,7 +10,9 @@ class GetWeatherCubit extends Cubit<WeatherState> {
 
   getWeather({required String cityName}) async {
     try {
-      WeatherModel weatherModel =
+      WeatherModel
+
+      weatherModel =
           await WeatherService(dio: Dio()).gitCurrentWeather(
         cityName: cityName,
       );
